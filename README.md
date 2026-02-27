@@ -67,14 +67,11 @@ Supports short videos | Slow full simulations | Time steps can be calculated for
 This model was designed in 5 July 2025, a time when no one had adopted this design, as most prompt engineering systems relied on a single integrated engine (prompt → generate directly). 
 The idea was relatively early in using a "Supervisor + Specialists" architecture to improve prompt quality and reduce errors.
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|--------------------------------------------------------------------------------------------------------------------|
 
 # NPL Engine – The Three Specialized Engines
-
 **NPL Engine** is an intelligent, multi-layered system designed to enhance and personalize image and video descriptions before sending them to AI generators (Flux, Grok Imagine, Midjourney, SD3, Kling, Runway, etc.).
-
 The system relies on **three specialized engines** operating in precise coordination under the supervision of **AI.RL** (the natural behavior and movement supervisor).
-
 ## The Three Engines
 
 | Engine | Abbreviation | Main Specialization | Main Profile |
@@ -110,8 +107,6 @@ Constructs the overall atmosphere and the unseen life within the image (lighting
 **How ​​It Helps Others**
 - Sends environmental effects to **NPL-T** (20 km/h wind → feather flutter, fur quiver, hair movement, etc.)
 - Sends lighting and reflection information to **NPL-G** to be applied to solid surfaces (car, walls, etc.)
-
----
 
 ### 3. AI.NPL(T) – Traditional / Organic Beings
 
@@ -198,17 +193,11 @@ AIRLSupervisor ensures that **every environmental influence** translates into **
 ## How AIRLSupervisor Works (Internal Flow)
 
 1. Takes the enriched description from **AI.prompts**
-
 2. Uses **SuperVisorHelper** (strategic cache) to retrieve previous behavioral or scientific information
-
 3. If it doesn't find enough information → searches externally (currently simulated, can be replaced with web_search or x_keyword_search)
-
 4. Calculates the basic physics using **physics_engine.py** (wind, lift, drag, effort, bending...)
-
 5. Monitors compatibility using **PhysicsMonitor** (Is the lift sufficient? Can the blades withstand it? Is there a stall?)
-
 6. Generates an accurate text description (prompt layer) which is added to the Final Prompt
-
 7. Sends customized instructions for **NPL-T/G/E** depending on the effect
 
 ## Main Functions in AIRLSupervisor
@@ -240,11 +229,15 @@ AIRLSupervisor ensures that **every environmental influence** translates into **
 
 | `physics_engine.py` | Physics Engine (Wind, Lift, Drag, Angle of Attack, Effort, Time Simulation, etc.) |
 
+
 | `supervisor_helper.py` | Strategic repository of behavioral and scientific information (serves AIRLSupervisor) |
+
 
 | `ai_prompts.py` | Source of enriched description and initial annotations |
 
+
 | `test.py` | Main test file (supports image/video selection + Final Prompt display) |
+
 
 ## Example output (Final Prompt)
 
@@ -275,14 +268,18 @@ System Overview. The NPL Engine is a multi-layered, specialized system designed 
 
 --------------|---------|-------------|--------------------------|-----------------------|-------------------------|-----------------|
 
+
 | `Engine`    |---------| `Full Name` |--------------------------| `Main Specialization` |-------------------------| `Primary Role` |
 
 
 | `AI.NPL(G)` |---------| `Geometric Design` |-------------------| `Engineering and Optical Composition` |---------| `Cars, Buildings, Solid Objects, Perspective, Proportions` |
 
+
 | `AI.NPL(E)` |---------|  `Environment Design` |----------------| `Environment, Atmosphere, and Dynamics` |-------| `Wind, Lighting, Dust, Plants, Rain, Storms` |
 
+
 | `AI.NPL(T)` |---------| `Traditional/Organic Beings` |---------| `Living and Organic Beings` |-------------------| `Humans, Animals, Fur, Feathers, Expressions, Organic Movement` | 
+
 
 Details of Each Engine 1. AI.NPL(G) - Geometric Design. Its benefit: It deals with all things geometric and solid (cars, buildings, tools, floors, walls, etc.).
 
@@ -329,9 +326,13 @@ Main Helper
 | `Files` |---------------------------| `Role` |
 
 | `ai_rl_supervisor.py` |-------------| `General Behavior and Movement Supervisor` |
+
 | `physics_engine.py` |---------------| `Physical Engine (Wind, Lift, Gravity, Active Control...)` |
+
 | `supervisor_helper.py`  |-----------| `Strategic Store for Behavioral and Scientific Information` |
+
 | `renderer.py`   |-------------------| `Final Integration Window and Weight Adding` |
+
 | `ai_prompts.py` |-------------------| `Initial Description Clarification and Enrichment` |           
 
             
