@@ -239,15 +239,15 @@ mountainous rocky nest, fresh wind 20-38 km/h, strong breeze, dust swirling ligh
 
 System Overview. The NPL Engine is a multi-layered, specialized system designed to generate high-resolution, realistic text descriptions (prompts) for image and video generators (Flux, Grok Imagine, Midjourney, SD3, Runway, Kling, etc.). The system relies on three specialized engines working together in precise coordination under the supervision of AI.RL (the Behavior and Motion Supervisor). The Three Engines: 
 
---------------|----------------|--------------------------------------|-----------------------------------------|
+--------------|---------|-------------|--------------------------|-----------------------|-------------------------|-----------------|
 
-| `Engine` | `Full Name` | `Main Specialization` | `Primary Role` |
+| `Engine`    |---------| `Full Name` |--------------------------| `Main Specialization` |-------------------------| `Primary Role` |
 
-| `AI.NPL(G)` |  `Geometric Design` | `Engineering and Optical Composition` | `Cars, Buildings, Solid Objects, Perspective, Proportions` |
+| `AI.NPL(G)` |---------| `Geometric Design` |-------------------| `Engineering and Optical Composition` |---------| `Cars, Buildings, Solid Objects, Perspective, Proportions` |
 
-| `AI.NPL(E)` |  `Environment Design` | `Environment, Atmosphere, and Dynamics` | `Wind, Lighting, Dust, Plants, Rain, Storms` |
+| `AI.NPL(E)` |---------|  `Environment Design` |----------------| `Environment, Atmosphere, and Dynamics` |-------| `Wind, Lighting, Dust, Plants, Rain, Storms` |
 
-| `AI.NPL(T)` | `Traditional/Organic Beings` | `Living and Organic Beings` | `Humans, Animals, Fur, Feathers, Expressions, Organic Movement` | 
+| `AI.NPL(T)` |---------| `Traditional/Organic Beings` |---------| `Living and Organic Beings` |-------------------| `Humans, Animals, Fur, Feathers, Expressions, Organic Movement` | 
 
 Details of Each Engine 1. AI.NPL(G) - Geometric Design. Its benefit: It deals with all things geometric and solid (cars, buildings, tools, floors, walls, etc.).
 
@@ -291,9 +291,11 @@ Logical Flow:
 AI.prompts → AI.RL → AI.NPL(E) → AI.NPL(T) → AI.NPL(G) → Renderer
 Main Helper 
 
-Files.                        Role
-ai_rl_supervisor.py           General Behavior and Movement Supervisor
-physics_engine.py.            Physical Engine (Wind, Lift, Gravity, Active Control...)
-supervisor_helper.py.         Strategic Store for Behavioral and Scientific Information
-renderer.py.                  Final Integration Window and Weight Adding
-ai_prompts.py.                Initial Description Clarification and Enrichment
+| `Files` |---------------------------| `Role` |
+| `ai_rl_supervisor.py` |-------------| `General Behavior and Movement Supervisor` |
+| `physics_engine.py` |---------------| `Physical Engine (Wind, Lift, Gravity, Active Control...)` |
+| `supervisor_helper.py`  |-----------| `Strategic Store for Behavioral and Scientific Information` |
+| `renderer.py`   |-------------------| `Final Integration Window and Weight Adding` |
+| `ai_prompts.py` |-------------------| `Initial Description Clarification and Enrichment` |           
+
+            
