@@ -1,31 +1,73 @@
 ### Grok.NG-NPL.x3 ###
-The idea behind the project is to separate the Natural Language Processing (NPL), 
+The idea behind the project is to separate the Natural Language Processing #(NPL)#. 
 technology of the Prompt AI engine in image and video generation into three separate disciplines.
 The main project idea is:
 Designing a supervisory AI system, supported by three assistants, each specializing in a specific task.
 
-An intelligent main supervisor (AI Supervisor) manages the entire process and distributes tasks to specialized assistants (X3 Assistants) who handle the finer details.
+Key Features:
 
-Role Distribution
-AI Supervisor General Manager: Understands the request, determines its type (text or image), coordinates between assistants, reviews results, and decides whether to retry or accept.
+1. **AI.prompts** → Collects and enriches the initial description (asks questions, adds details)
+2. **AI.RL** → Oversees behavior and physics, calculates wind/gravity, and sends customized instructions for all three
+3. **AI.NPL(E)** → Begins building the environment and dynamics (wind, light, dust, etc.)
+4. **AI.NPL(T)** → Takes environmental effects and applies them to living things (feather bending, fur quivering, etc.)
+5. **AI.NPL(G)** → Adjusts the geometry and perspective based on movement and environmental effects
+6. **Renderer** → Combines all parts into a single final prompt + style suffix
 
-AI Text Assistant Text specialist: Corrects grammar and syntax, improves phrasing, removes ambiguity, and prepares the final text before generation.
+## Benefits of Separating the Three Engines (NPL-G • NPL-E • NPL-T)
 
-AI Image Assistant Provides prompt generation and optimization: Builds robust prompts, manages negative prompts, analyzes defects, and performs iterative optimization.
+Separating the three engines into independent layers is not merely a software arrangement, but a strategic design decision that achieves tangible improvements in **four key dimensions** when generating images and video:
 
-AI Helper Enrichment Expert: Adds specialized technical and visual details according to the field (space, vehicles, nature, history, art, etc.), suggests clarifying questions, and identifies priority and prohibited words.
+### 1. Quality
 
-Why this design?
-Reduced load on the main model → Each helper focuses on a single task with high precision.
-Improved accuracy and consistency → The supervisor monitors and corrects, while the helpers handle the finer details.
-Flexibility and scalability → New helpers (such as AI Code Assistant and AI Research Assistant) can be added in the future.
-Feedback loops → The supervisor automatically retryes if problems are found, with continuous improvement.
-Time context
-This model was designed in 1 July 2025, a time when no one had adopted this design, as most prompt engineering systems relied on a single integrated engine (prompt → generate directly). The idea was relatively early in using a "Supervisor + Specialists" architecture to improve prompt quality and reduce errors.
+| Dimension | Before Separation (Unified System) | After Separation (Separate NPL-G/E/T) | Tangible Benefits |
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------- ... More natural movement (feathers bend only at the tips, fur sways in the wind) |
+
+| Visual consistency | Potential contrasts (a stationary car in a strong wind) | NPL-G adjusts perspective, NPL-E adds appropriate dust/reflections | Visually coherent image/video without obvious contrasts |
+
+| Creativity in detail | Limited by mixing | Each engine adds an independent creative layer | Richer and more varied results (facial expressions + fur sway + dynamic lighting reflections) |
+
+### 2. Efficiency
+
+| Dimension | Before separation | After separation | Tangible benefit |
+
+---------------------------|-------------------------------------------------------------|----------------------------------------------------------------------------|
+
+| Resource consumption (CPU/RAM) | Everything is calculated in one large function | Each engine handles only a specific part | Significantly less power consumption when generating long or complex descriptions |
+
+| Ease of maintenance and development | One modification affects everything | Modifying NPL-E does not affect NPL-T or NPL-G | Faster development, fewer errors, engines can be reused in other projects |
+
+| Code reuse | Difficult to separate parts | Each engine is independent → can be used in other systems | Very high reuse efficiency (e.g., NPL-T in a separate animation project) |
+
+| Scalability | Adding a fourth engine (water/fire) corrupts the entire code | Adding a new engine does not affect the three | Seamless future expansion (e.g., adding NPL-F for water or fire effects) |
+
+### 3. Speed
+
+| Dimension | Before separation | After separation | Tangible benefit |
+
+----------------------------------------------------------------------- ... All operations in one long loop | Each engine operates independently and in parallel | Much faster, especially with complex descriptions or when using physics simulations |
+
+Fast response to changes | Recalculates everything, even if a small part changes | Wind change → Only the NPL-E is recalculated | Much faster development and testing experience (near-instantaneous hot-reload for a specific part) |
 
 
+Supports short videos | Slow full simulations | Time steps can be calculated for each engine individually | Minimal latency when simulating 30–60 frames per second (frame-by-frame) |
+
+### 4. Intelligence
+
+| Dimension | Before separation | After separation | Tangible benefit |
+
+----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+| Multi-context understanding | Integration of objects, environment, and geometry | Each engine deeply understands and specializes in its domain | Higher intelligence in detail (wind affects feathers differently than a car) |
+
+| Ability to learn/adapt | Difficult to systematically add new knowledge | NPL-T can be updated without touching NPL-E or NPL-G | Easier training/updating of specialized knowledge (e.g., new cat behavior or advanced wind physics) |
+
+| Compatibility with real physics | Rough and random | NPL-E can be linked to a physics engine → becomes more accurate | Higher physics intelligence (eagle flies with less effort in 20 km/h winds, feathers bend realistically) |
+
+| Ability to innovate | Limited due to mixing
+ 
+This model was designed in 5 July 2025, a time when no one had adopted this design, as most prompt engineering systems relied on a single integrated engine (prompt → generate directly). 
+The idea was relatively early in using a "Supervisor + Specialists" architecture to improve prompt quality and reduce errors.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -143,7 +185,7 @@ mountainous rocky nest, fresh wind 20-38 km/h, strong breeze, dust swirling ligh
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# AIRLSupervisor – Natural Behavior and Motion Supervisor (AI.RL)
+## AIRLSupervisor – Natural Behavior and Motion Supervisor (AI.RL) ##
 
 **AIRLSupervisor** is the main supervisory layer in the system (Reinforcement Learning-inspired Supervisor), responsible for:
 
@@ -235,7 +277,7 @@ mountainous rocky nest, fresh wind 20-38 km/h, strong breeze, dust swirling ligh
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## NPL Engine - The Three Specialized Engines:##
+## NPL Engine - The Three Specialized Engines:
 
 System Overview. The NPL Engine is a multi-layered, specialized system designed to generate high-resolution, realistic text descriptions (prompts) for image and video generators (Flux, Grok Imagine, Midjourney, SD3, Runway, Kling, etc.). The system relies on three specialized engines working together in precise coordination under the supervision of AI.RL (the Behavior and Motion Supervisor). The Three Engines: 
 
