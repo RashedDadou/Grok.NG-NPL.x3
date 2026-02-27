@@ -13,6 +13,8 @@ Key Features:
 5. **AI.NPL(G)** → Adjusts the geometry and perspective based on movement and environmental effects
 6. **Renderer** → Combines all parts into a single final prompt + style suffix
 
+|--------------------------------------------------------------------------------------------------------------------|
+
 ## Benefits of Separating the Three Engines (NPL-G • NPL-E • NPL-T)
 
 Separating the three engines into independent layers is not merely a software arrangement, but a strategic design decision that achieves tangible improvements in **four key dimensions** when generating images and video:
@@ -21,17 +23,17 @@ Separating the three engines into independent layers is not merely a software ar
 
 | Dimension | Before Separation (Unified System) | After Separation (Separate NPL-G/E/T) | Tangible Benefits |
 
-|... More natural movement (feathers bend only at the tips, fur sways in the wind) |
+| More natural movement (feathers bend only at the tips, fur sways in the wind) |
 
 | Visual consistency | Potential contrasts (a stationary car in a strong wind) | NPL-G adjusts perspective, NPL-E adds appropriate dust/reflections | Visually coherent image/video without obvious contrasts |
 
 | Creativity in detail | Limited by mixing | Each engine adds an independent creative layer | Richer and more varied results (facial expressions + fur sway + dynamic lighting reflections) |
 
+|--------------------------------------------------------------------------------------------------------------------|
+
 ### 2. Efficiency
 
 | Dimension | Before separation | After separation | Tangible benefit |
-
----------------------------|-------------------------------------------------------------|----------------------------------------------------------------------------|
 
 | Resource consumption (CPU/RAM) | Everything is calculated in one large function | Each engine handles only a specific part | Significantly less power consumption when generating long or complex descriptions |
 
@@ -41,16 +43,19 @@ Separating the three engines into independent layers is not merely a software ar
 
 | Scalability | Adding a fourth engine (water/fire) corrupts the entire code | Adding a new engine does not affect the three | Seamless future expansion (e.g., adding NPL-F for water or fire effects) |
 
+|--------------------------------------------------------------------------------------------------------------------|
+
 ### 3. Speed
 
 | Dimension | Before separation | After separation | Tangible benefit |
 
------------------------------------------------------------------------ ... All operations in one long loop | Each engine operates independently and in parallel | Much faster, especially with complex descriptions or when using physics simulations |
+All operations in one long loop | Each engine operates independently and in parallel | Much faster, especially with complex descriptions or when using physics simulations |
 
 Fast response to changes | Recalculates everything, even if a small part changes | Wind change → Only the NPL-E is recalculated | Much faster development and testing experience (near-instantaneous hot-reload for a specific part) |
 
-
 Supports short videos | Slow full simulations | Time steps can be calculated for each engine individually | Minimal latency when simulating 30–60 frames per second (frame-by-frame) |
+
+|--------------------------------------------------------------------------------------------------------------------|
 
 ### 4. Intelligence
 
@@ -76,7 +81,7 @@ The system relies on **three specialized engines** operating in precise coordina
 
 | Engine | Abbreviation | Main Specialization | Main Profile |
 
-----------------|- ... `ai_npl_t.py` |
+| `ai_npl_t.py` |
 
 ### 1. AI.NPL(G) – Geometric Design
 
@@ -123,8 +128,6 @@ Adds **life and vitality** to living beings (humans, animals, birds, cats, etc.)
 - Provides **NPL-E** with information about how the organism interacts with its environment (feathers quiver, fur twitches, hair flies, etc.)
 - Helps **NPL-G** determine the size and space occupied by the organism without conflicting with its geometry
 
----
-
 ### How Do the Three Motors Work Together? (Logical Flow)
 
 1. **AI.prompts** → Gathers and enriches the initial description (asks questions, adds details)
@@ -136,8 +139,6 @@ Adds **life and vitality** to living beings (humans, animals, birds, cats, etc.)
 
 **Ideal Order for Additions in the Renderer:**
 `T` (Creators) → `RL` (Behavior and Physics) → `G` (Geometry) → `E` (Environment)
-
----
 
 ### Main Helper Files
 
@@ -154,9 +155,6 @@ Adds **life and vitality** to living beings (humans, animals, birds, cats, etc.)
 | `supervisor_helper.py` | Strategic repository of behavioral and scientific information (mainly serves AI.RL) |
 
 | `renderer.py` | Final merging window + Adding weights + Arranging parts |
-
-
----
 
 ### Example of a final prompt
 
