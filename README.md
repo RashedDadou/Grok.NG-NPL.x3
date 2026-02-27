@@ -81,8 +81,6 @@ The system relies on **three specialized engines** operating in precise coordina
 
 | Engine | Abbreviation | Main Specialization | Main Profile |
 
-| `ai_npl_t.py` |
-
 ### 1. AI.NPL(G) – Geometric Design
 
 **Its Main Benefit**
@@ -182,6 +180,7 @@ mountainous rocky nest, fresh wind 20-38 km/h, strong breeze, dust swirling ligh
 ## Main Purpose
 
 To make the image or video come alive and realistic, not just a montage of static elements. Example:
+
 - An eagle soaring in a 20 km/h wind → Feathers curl at the limbs, minimal effort, wings adjust automatically.
 - A cat in an old garage → Fur ruffled by flying dust, slight ear movement, tail swaying curiously.
 - A car in a strong wind → Slight vibration in the mirrors, dust accumulating on the roof.
