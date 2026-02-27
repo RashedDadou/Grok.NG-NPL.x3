@@ -21,7 +21,7 @@ Separating the three engines into independent layers is not merely a software ar
 
 | Dimension | Before Separation (Unified System) | After Separation (Separate NPL-G/E/T) | Tangible Benefits |
 
--------------------------------------------------------------------------------------------------------------------------------------- ... More natural movement (feathers bend only at the tips, fur sways in the wind) |
+|... More natural movement (feathers bend only at the tips, fur sways in the wind) |
 
 | Visual consistency | Potential contrasts (a stationary car in a strong wind) | NPL-G adjusts perspective, NPL-E adds appropriate dust/reflections | Visually coherent image/video without obvious contrasts |
 
@@ -56,8 +56,6 @@ Supports short videos | Slow full simulations | Time steps can be calculated for
 
 | Dimension | Before separation | After separation | Tangible benefit |
 
-----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-
 | Multi-context understanding | Integration of objects, environment, and geometry | Each engine deeply understands and specializes in its domain | Higher intelligence in detail (wind affects feathers differently than a car) |
 
 | Ability to learn/adapt | Difficult to systematically add new knowledge | NPL-T can be updated without touching NPL-E or NPL-G | Easier training/updating of specialized knowledge (e.g., new cat behavior or advanced wind physics) |
@@ -77,15 +75,11 @@ The idea was relatively early in using a "Supervisor + Specialists" architecture
 
 The system relies on **three specialized engines** operating in precise coordination under the supervision of **AI.RL** (the natural behavior and movement supervisor).
 
----
-
 ## The Three Engines
 
 | Engine | Abbreviation | Main Specialization | Main Profile |
 
 ----------------|- ... `ai_npl_t.py` |
-
----
 
 ### 1. AI.NPL(G) – Geometric Design
 
@@ -101,8 +95,6 @@ Ensures that everything "solid" in the image (cars, buildings, tools, floors, wa
 **How ​​It Helps Others**
 - Provides **NPL-E** with information about the shape of surfaces so that it can realistically apply wind and lighting (e.g., reflections on a shiny car hood)
 - Determines for **NPL-T** the space available for organic movement without conflicting with the geometry
-
----
 
 ### 2. AI.NPL(E) – Environment Design
 
@@ -223,7 +215,7 @@ AIRLSupervisor ensures that **every environmental influence** translates into **
 
 | Function | Main Purpose | Main Input | Expected Output |
 
-|-------------------------------|--------------------------------------------------------------------------------|--------------------------------------|-------------------|
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 
 | `generate_behavior` | Generate the final natural behavior and motion layer | enriched_prompt, output_type ("image" or "video") | Ready-made prompt script |
 
@@ -244,7 +236,7 @@ AIRLSupervisor ensures that **every environmental influence** translates into **
 
 | File | Main Role |
 
-------------------------------|-------------------------------------------------------------------------------|
+|-------------------------------------------------------------------------------------------------------------|
 
 | `physics_engine.py` | Physics Engine (Wind, Lift, Drag, Angle of Attack, Effort, Time Simulation, etc.) |
 
@@ -275,7 +267,7 @@ the eagle glides steadily with perfect balance almost effortless soaring thanks 
 strong low angle to highlight the eagle and nest, rule of thirds, balanced negative spaceEnvironmental atmosphere and dynamics:
 mountainous rocky nest, fresh wind 20-38 km/h, strong breeze, dust swirling lightly, atmospheric depthphotorealistic, cinematic lighting, ultra detailed, 8k, sharp focus --ar 16:9
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|-------------------------------------------------------------------------------------------------------------------------------------------|
 
 ## NPL Engine - The Three Specialized Engines:
 
@@ -284,6 +276,7 @@ System Overview. The NPL Engine is a multi-layered, specialized system designed 
 --------------|---------|-------------|--------------------------|-----------------------|-------------------------|-----------------|
 
 | `Engine`    |---------| `Full Name` |--------------------------| `Main Specialization` |-------------------------| `Primary Role` |
+
 
 | `AI.NPL(G)` |---------| `Geometric Design` |-------------------| `Engineering and Optical Composition` |---------| `Cars, Buildings, Solid Objects, Perspective, Proportions` |
 
@@ -334,6 +327,7 @@ AI.prompts → AI.RL → AI.NPL(E) → AI.NPL(T) → AI.NPL(G) → Renderer
 Main Helper 
 
 | `Files` |---------------------------| `Role` |
+
 | `ai_rl_supervisor.py` |-------------| `General Behavior and Movement Supervisor` |
 | `physics_engine.py` |---------------| `Physical Engine (Wind, Lift, Gravity, Active Control...)` |
 | `supervisor_helper.py`  |-----------| `Strategic Store for Behavioral and Scientific Information` |
